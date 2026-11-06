@@ -29,10 +29,13 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument(
         "--provider",
         default="mock:refuse",
-        help="mock:refuse | mock:comply | openai-compatible (default: mock:refuse)",
+        help="mock:refuse | mock:comply | openai-compatible | anthropic (default: mock:refuse)",
     )
-    run.add_argument("--model", help="model name (openai-compatible provider)")
-    run.add_argument("--base-url", help="API base URL (or RULECHECK_BASE_URL)")
+    run.add_argument("--model", help="model name (required for openai-compatible and anthropic)")
+    run.add_argument(
+        "--base-url",
+        help="API base URL (openai-compatible: or RULECHECK_BASE_URL; anthropic: optional gateway)",
+    )
     run.add_argument("--system-prompt-file", help="text file sent as the system prompt")
     run.add_argument("--category", action="append", help="only run this category (repeatable)")
     run.add_argument("--dialect", action="append", help="only run this dialect (repeatable)")
