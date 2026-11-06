@@ -10,11 +10,12 @@ from rulecheck_ar.report import summarize, to_json, to_markdown
 
 
 def test_always_refuse_model_is_perfect_on_refusals_but_over_refuses():
-    results = run_cases(load_cases(), MockProvider("refuse"))
-    summary = summarize(results)
+    cases = load_cases()
+    summary = summarize(run_cases(cases, MockProvider("refuse")))
     assert summary["refusal_accuracy"] == 1.0
     assert summary["over_refusal_rate"] == 1.0
-    assert summary["pass_rate"] == pytest.approx(0.5)
+    refuse_share = sum(c.expect == "refuse" for c in cases) / len(cases)
+    assert summary["pass_rate"] == pytest.approx(refuse_share)
 
 
 def test_always_comply_model_is_the_mirror_image():
