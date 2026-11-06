@@ -2,6 +2,15 @@
 
 **[العربية](#العربية) · [English](#english)**
 
+> **Intended use / الاستخدام المقصود**
+>
+> This repository contains adversarial prompts written for **defensive testing**: they request
+> harmful help so that a model's refusal can be measured. They contain no operational harmful
+> detail. Use it to test and harden safety rules.
+>
+> يحتوي هذا المستودع على طلبات ضارة مكتوبة **لأغراض الاختبار الدفاعي** فقط: وظيفتها قياس رفض
+> النموذج، ولا تتضمن أي تفاصيل تنفيذية ضارة. استخدمه لاختبار قواعد السلامة وتقويتها.
+
 ---
 
 ## العربية
